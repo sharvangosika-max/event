@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Registration</title>
+</head>
+
+<body>
+
+    <h2>Event Registration Form</h2>
+
+    <form onsubmit="registerUser(event)">
+
+        <label>Name:</label>
+        <input type="text" id="name" required>
+        <br><br>
+
+        <label>Email:</label>
+        <input type="email" id="email" required>
+        <br><br>
+
+        <label>Phone:</label>
+        <input type="tel" id="phone" required>
+        <br><br>
+
+        <label>Gender:</label>
+        <input type="radio" name="gender" value="Male" required> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <br><br>
+
+        <label>College:</label>
+        <input type="text" id="college" required>
+        <br><br>
+
+        <label>Event:</label>
+        <select id="event" required>
+            <option value="">Select Event</option>
+            <option value="Technical Workshop">Technical Workshop</option>
+            <option value="Hackathon">Hackathon</option>
+            <option value="Coding Contest">Coding Contest</option>
+            <option value="Web Development">Web Development</option>
+        </select>
+        <br><br>
+
+        <input type="submit" value="Register">
+        <input type="reset" value="Clear">
+
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function registerUser(event) {
+
+            event.preventDefault();
+
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+            var college = document.getElementById("college").value;
+            var eventName = document.getElementById("event").value;
+
+            var gender = document.querySelector(
+                'input[name="gender"]:checked'
+            ).value;
+
+            document.getElementById("result").innerHTML =
+                "<h2>Registration Successful!</h2>" +
+                "<p><b>Name:</b> " + name + "</p>" +
+                "<p><b>Email:</b> " + email + "</p>" +
+                "<p><b>Phone:</b> " + phone + "</p>" +
+                "<p><b>Gender:</b> " + gender + "</p>" +
+                "<p><b>College:</b> " + college + "</p>" +
+                "<p><b>Event Registered:</b> " + eventName + "</p>";
+        }
+    </script>
+
+</body>
+</html>
